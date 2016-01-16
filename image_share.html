@@ -1,14 +1,34 @@
 <head>
-  <title>image_share</title>
+  <title>Meteor Cartoon</title>
 </head>
 
 <body>
-  <h1>Welcome to Meteor!</h1>
-
-  {{> hello}}
+	<h1>Welcome to Meteor cartoon!</h1>
+  	<div class="container">
+  		{{> cartoon}}
+  	</div>
 </body>
 
-<template name="hello">
-  <button>Click Me</button>
-  <p>You've pressed the button {{counter}} times.</p>
+<template name="cartoon">
+	<div class="row">
+		{{#each strips}}
+		<div class="col-xs-12 col-md-3">
+			<div class="thumbnail">
+				<img src="{{strip_src}}" alt="{{strip_alt}}" />
+
+				<div class="caption">
+					<button id="counter{{strip_order}}">Like</button>
+				</div>
+			</div>
+		</div>
+		{{/each}}
+	</div>
+	<p>Number of likes:
+		<ul>
+			<li>strip1 = {{counter1}}</li>
+			<li>strip2 = {{counter2}}</li>
+			<li>strip3 = {{counter3}}</li>
+			<li>strip4 = {{counter4}}</li>
+		</ul>
+	</p>
 </template>
